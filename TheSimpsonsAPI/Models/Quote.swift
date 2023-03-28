@@ -7,8 +7,11 @@
 
 import Foundation
 
+enum Link: String {
+    case url = "https://thesimpsonsquoteapi.glitch.me/quotes"
+}
+
 struct Quotes: Decodable {
-    
     let quote: String
     let character: String
     let image: String
@@ -26,6 +29,3 @@ struct Quotes: Decodable {
     }
 }
 
-enum Link: String {
-    case url = "https://thesimpsonsquoteapi.glitch.me/quotes"
-}

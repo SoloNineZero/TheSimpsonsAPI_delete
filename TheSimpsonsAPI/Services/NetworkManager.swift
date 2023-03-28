@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 final class NetworkManager {
-    
     static let shared = NetworkManager()
     
     private init() {}
@@ -27,14 +26,7 @@ final class NetworkManager {
                 }
             }
     }
-}
 
-final class ImageManager {
-    
-    static let shared = ImageManager()
-    
-    private init() {}
-    
     func fetchImage(from url: String, completion: @escaping(Data) -> Void) {
         AF.request(url).validate().responseData { data in
             switch data.result {

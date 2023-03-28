@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 final class MainViewController: UIViewController {
     
@@ -23,7 +22,6 @@ final class MainViewController: UIViewController {
     // MARK: - Private properties
     private var quotes: [Quotes] = []
     private let networkManger = NetworkManager.shared
-    private let imageManager = ImageManager.shared
     
     // MARK: - Override Functions
     override func viewDidLoad() {
@@ -50,11 +48,10 @@ final class MainViewController: UIViewController {
                 print(error)
             }
         }
-        
     }
     
     private func fetchImage(for imageString: String) {
-        imageManager.fetchImage(from: imageString) { [weak self] imageData in
+        networkManger.fetchImage(from: imageString) { [weak self] imageData in
             self?.photoImage.image = UIImage(data: imageData)
         }
     }
@@ -67,8 +64,5 @@ final class MainViewController: UIViewController {
             activityIndicator.stopAnimating()
         }
     }
-    
-    
-
 }
 
